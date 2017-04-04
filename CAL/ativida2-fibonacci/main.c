@@ -4,14 +4,14 @@
 #include "fibonacci.h"
 
 // Atividade 01
-
+//
 // Escreva duas versões do algoritmo de fibonacci: a
 // versão “ruim” apresentada e uma versão “boa”
 // usando vetores. Faça uma comparação de tempo de
 // execução com valores entre 25 e 60.
-
-// Qual a complexidade da versão “boa” do algoritmo?
 //
+// Qual a complexidade da versão “boa” do algoritmo?
+
 // int main(){
 // 	struct timeval inicio, final;
 //   double tempo_real;
@@ -58,7 +58,7 @@
 // Após implementar o algoritmo escreva a relação de
 // recorência e a respectiva complexidade do
 // algoritmo para o pior caso.
-//
+// Espaco de Tempo log2 N
 int main(){
 	double n;
 	printf("Digite  número: ");
