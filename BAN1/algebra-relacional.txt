@@ -1,0 +1,10 @@
+Slider url: https://buchinger.github.io/BAN/06-algebra-relacional.pdf
+Professor: Buchinger Diego
+
+Exercicío:
+https://buchinger.github.io/BAN/06-algebra-relacional-base.txt
+
+a) σ doenca = 'sarampo' Consultas
+b) σ especialidade = 'Ortopedista' ∧ idade ≥ 55 Medicos
+c) σ codm != 102401 ∧ codm != 100985 Consultas
+d) σ andar = 4 ∧ capacidade ≥ 50 ∨ nroa ≥410 Ambulatorios
