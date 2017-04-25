@@ -4,7 +4,24 @@ Professor: Buchinger Diego
 Exercicío:
 https://buchinger.github.io/BAN/06-algebra-relacional-base.txt
 
+//Seleção
 a) σ doenca = 'sarampo' Consultas
 b) σ especialidade = 'Ortopedista' ∧ idade ≥ 55 Medicos
 c) σ codm != 102401 ∧ codm != 100985 Consultas
 d) σ andar = 4 ∧ capacidade ≥ 50 ∨ nroa ≥410 Ambulatorios
+
+//Projeção
+a) π nome, especialidade (Medicos)
+b) π nroa (σ andar=3 Ambulatorios)
+c) π codm,data (σ codp=00003 ∨ codp=00008 Consultas)
+d) π nroa (σ capacidade>=20 ∧ andar!=2 Ambulatorios)
+
+//Produto Cartesiano
+a) π Medicos.nome, Consultas.data
+	(σ Medicos.codm = Consultas.codm (Medicos x Consultas))
+b) π Ambulatorios.nroa, Ambulatorios.capacidade, Medicos.nome
+ (σ Ambulatorios.andar = 3 ∧ Medicos.especialidade = 'Ortopedista' ∧ Medicos.nroa = Ambulatorios.nroa (Ambulatorios ⨯ Medicos))
+c) π Medicos.nome, Pacientes.nome, Consultas.data
+ (σ Consultas.hora ≤ '12:00' ∧ Consultas.data ≥ '2010' ∧ Consultas.codm = Medicos.codm ∧ Pacientes.codp = Consultas.codp (Consultas x Medicos x Pacientes))
+d) π Pacientes.nome, Funcionarios.salario
+ (σ Pacientes.cidade = 'Florianopolis' ∧ Pacientes.cpf = Funcionarios.cpf ∧ Medicos.especialidade = 'Psiquiatra' ∧ Medicos.codm = Consultas.codm (Consultas x Medicos x Pacientes x Funcionarios))
