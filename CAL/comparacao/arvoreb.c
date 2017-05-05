@@ -37,14 +37,18 @@ void mostra(Nodo *raiz)
 }
 
 unsigned int busca(char nome[100],char sobrenome[100], Nodo *raiz){
-  if (raiz != NULL){
-       busca(nome,sobrenome,raiz->esq);
-       if((strcmp(raiz->nome,nome)==0)&&(strcmp(raiz->sobrenome,sobrenome))==0){
-         return raiz->number;
-       }
-       busca(nome,sobrenome,raiz->dir);
-   }
-   return ERRO;
+    if((strcmp(raiz->nome,nome)==0)&&(strcmp(raiz->sobrenome,sobrenome))==0){
+     return raiz->number;
+    }
+    while (raiz != NULL){
+      if(raiz->dir == NULL){
+        return busca(nome,sobrenome,raiz->esq);
+      }
+      else{
+        return busca(nome,sobrenome,raiz->dir);
+      }
+    }
+  return ERRO;
 }
 
 // int removeNodo(Nodo *raiz, int dado)
