@@ -5,37 +5,30 @@
 
 int main()
 {
-/*
-    // int valor;
-    // Nodo *raiz=iniciaArvore();
-    //
-    // printf("Digita o valor que deseja inserir:\n");
-    // while(scanf("%i", &valor), valor>=0){
-    //             printf("Digite o dado(-1 para sair):\t");
-    //             insere(valor, &raiz);
-    // }
-
     //////////////////Manipulação de Arquivos//////////////////
     //entrada
-    char url[]="entrada-3.txt";
+    char url[]="entrada-5.txt";
     FILE *arq;
     arq = fopen(url, "r");
     //saida
     FILE *saida;
-    char url2[]="saida-3.txt";
+    char url2[]="saida-5.txt";
     saida = fopen(url2, "w+");
     //////////////////////////////////////////////////////////
-    Nodo *raiz=iniciaArvore();
-    unsigned int n=0,i=0,number,found;
+    unsigned int n=0,i=0,number=0,found=0,ret=0,tabelatam=0;
     char nome[100],sobrenome[100];
     clock_t tempoInicial, tempoFinal;
     double tempoGasto;
     //Primeiro n
     fscanf(arq,"%i\n",&n);
+		tabelatam = n/10;
+		tLista lista[tabelatam]; //tabela hash (vetor de lista)
+		inicializaLista(&lista);
     tempoInicial = clock();
     for(i=0;i<n;i++){
       fscanf(arq,"%i %s %s\n", &number,nome,sobrenome);
-      insere(number, nome, sobrenome, &raiz);
+			ret = geraHash(stringToInt(nome,sobrenome),tabelatam);
+			inserirNoInicio(&lista[ret],number,nome,sobrenome);
     }
     tempoFinal = clock();
     tempoGasto = ((tempoFinal-tempoInicial)/CLOCKS_PER_SEC);
@@ -45,9 +38,9 @@ int main()
     tempoInicial = clock();
     for(i=0;i<n;i++){
       fscanf(arq,"%s %s\n",nome,sobrenome);
-      found = busca(nome,sobrenome,raiz);
+      found = geraHash(stringToInt(nome,sobrenome),tabelatam);
     //	printf("Encontrado:%i para %s %s\n",found,nome,sobrenome);
-      fprintf(saida, "%i\n", found );
+      fprintf(saida, "%i\n", lista[found].cabecalho->number);
     }
     tempoFinal = clock();
     tempoGasto = ((tempoFinal-tempoInicial)/CLOCKS_PER_SEC);
@@ -57,7 +50,7 @@ int main()
     fclose(arq);
 
     //mostra(raiz);
-*/
+/*
 	char nome[100]="Hellen";
 	char sobrenome[100]="Jonathan";
     	int ret,number=10;
@@ -69,6 +62,6 @@ int main()
 	printf("\n%i\n",ret);
 	inserirNoInicio(&lista[ret],number,nome,sobrenome);
 	inserirNoInicio(&lista[ret],12,nome,sobrenome);
-	mostraLista(lista[ret]);
+	printf("\nEsse: %i\n",(lista[ret].cabecalho)->number);*/
     return 0;
 }

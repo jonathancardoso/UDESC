@@ -15,6 +15,30 @@ int geraHash(int prehash, int tamanhotabela){
 	return prehash % tamanhotabela;
 }
 
+// int buscarHash(tLista lista[5000],int tabelatam, char nome[100],char sobrenome[100]){
+// 	int aux=0;
+// 	aux = geraHash(stringToInt(&nome,&sobrenome),tabelatam);
+// 	printf("\nGerei\n");
+// 	if((strcmp(lista.cabecalho->nome,nome)==0)&&(strcmp(lista.cabecalho->sobrenome,sobrenome))==0){
+// 		printf("\nPrint 1\n");
+// 		return lista[aux].cabecalho->number;
+// 	}
+// 	else{
+// 		while(!COMPARA || lista[aux].cabecalho == NULL){
+// 			  printf("\nPrint 2\n");
+// 				lista[aux].cabecalho = lista[aux].cabecalho->prox;
+// 		}
+// 		if ((lista[aux].cabecalho) == NULL) {
+// 			printf("\nPrint 3\n");
+// 			return ERRO;
+// 		}
+// 		else{
+// 			printf("\nPrint 4\n");
+// 			return ((lista[aux].cabecalho)->number);
+// 		}
+// 	}
+// }
+
 //----------------
 //Funções Arvore
 //----------------

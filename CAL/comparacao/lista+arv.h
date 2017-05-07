@@ -4,6 +4,7 @@
 #define SIM 1
 #define NAO 0
 #define ERRO 987654321
+#define COMPARA ((strcmp(lista->cabecalho->nome,nome)==0)&&(strcmp(lista->cabecalho->sobrenome,sobrenome))==0)
 //----------------
 //Estrutura Arvore
 //----------------
